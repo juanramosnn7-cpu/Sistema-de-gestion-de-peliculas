@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestion de Peliculas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <h1>Sistema de Gestion de Peliculas</h1>
+        </div>
+        <button id="botonModoOscuro" class="boton-secundario" type="button">Modo oscuro</button>
+    </header>
+
+    <main class="contenedor">
+        <section class="panel formulario-panel">
+            <h2>Registrar pelicula</h2>
+
+            <form id="formularioPelicula" novalidate>
+                <input type="hidden" id="peliculaId">
+
+                <div class="campo">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" id="titulo" placeholder="Ej: Interestelar">
+                    <span id="errorTitulo" class="error"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="director">Director</label>
+                    <input type="text" id="director" placeholder="Ej: Christopher Nolan">
+                    <span id="errorDirector" class="error"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="anio">Anio</label>
+                    <input type="number" id="anio" placeholder="Ej: 2014">
+                    <span id="errorAnio" class="error"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria">
+                        <option value="">Seleccione una categoria</option>
+                        <option value="Accion">Accion</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Terror">Terror</option>
+                    </select>
+                    <span id="errorCategoria" class="error"></span>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button id="botonGuardar" class="boton-principal" type="submit">Guardar pelicula</button>
+                    <button id="botonCancelar" class="boton-secundario oculto" type="button">Cancelar edicion</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel listado-panel">
+            <div class="barra-listado">
+                <div>
+                    <h2>Peliculas registradas</h2>
+                    <p id="contadorPeliculas" class="contador">0 peliculas</p>
+                </div>
+            </div>
+
+            <div class="filtros">
+                <div class="campo">
+                    <label for="buscador">Buscar por titulo</label>
+                    <input type="search" id="buscador" placeholder="Escribe para buscar...">
+                </div>
+
+                <div class="campo">
+                    <label for="filtroCategoria">Filtrar por categoria</label>
+                    <select id="filtroCategoria">
+                        <option value="Todas">Todas</option>
+                        <option value="Accion">Accion</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Terror">Terror</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="listaPeliculas" class="lista-peliculas"></div>
+            <p id="mensajeVacio" class="mensaje-vacio">Aun no hay peliculas registradas.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
